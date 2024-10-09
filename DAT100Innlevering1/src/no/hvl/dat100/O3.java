@@ -1,14 +1,19 @@
 package no.hvl.dat100;
 
 import java.math.BigInteger;
+import static javax.swing.JOptionPane.*;
 
 public class O3 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(factorial(4));
-		System.out.println(factorial(5));
-		System.out.println(factorial(5000));
+		while (true) {
+			String input = showInputDialog("Fakultet av:");
+			try {System.out.println(Integer.parseInt(input));}
+			catch (NumberFormatException e) {
+				System.out.println("Input ikke godkjent, avbryter.");
+				return;
+			}
+		}
 	}
 	
 	public static BigInteger factorial(int n) {

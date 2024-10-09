@@ -5,19 +5,26 @@ import static javax.swing.JOptionPane.*;
 public class O1 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
-		for (int i = 0; i <=100; i = i + 9) {
-			System.out.println("Grade: " + grade(i) + " Score: " + i);
-		}
-		grade(new int[] {1, 19, 50, 66, 90, 101, -1, 44, 78, 0});
-//		System.out.println(grade(new int[] {1, 19, 50, 66, 90}));
+		System.out.println(grade());
+		System.out.println("\nInput 10 karakterer:");
+		grades();
 	}
 	
-	public static char grade(int i) {
+	public static char[] grades() {
+		char[] l = new char[10];
+		for (int i = 0; i < 10; i++) {
+			char g = grade();
+			System.out.println("Karakter: " + g);
+			l[i] = g;
+		}
+		return l;
+	}
+	
+	public static char grade() {
+		int i = Integer.parseInt(showInputDialog(""));
 		if (i > 100 || i < 0) {
 			System.out.println("Karakteren " + i + " er utenfor rekkevidden (0-100).");
-			return '-';
+			return grade(); // recur hvis utenfor rekkevidde
 		}
 		if (i >= 90) return 'A';
 		if (i >= 80) return 'B';
@@ -26,19 +33,4 @@ public class O1 {
 		if (i >= 40) return 'E';
 		return 'F';
 	}
-	
-	public static char[] grade(int[] i) {
-		
-		char[] j = new char[i.length];
-		for (int k = 0; k < i.length; k++) {
-			j[k] = grade(i[k]);
-			while (j[k] == '-') {
-				System.out.println("Skriv inn ny verdi: ");
-				j[k] = grade(Integer.parseInt(showInputDialog("Karakter utenfor rekkevidde (0-100), skriv ny verdi:")));
-			}
-			System.out.println(j[k]);
-		}
-		return j;
-	}
-
 }

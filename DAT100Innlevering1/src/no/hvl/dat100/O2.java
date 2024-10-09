@@ -1,10 +1,21 @@
 package no.hvl.dat100;
 
+import java.util.Scanner;
+
 public class O2 {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println(trinnskatt(29000000d));
+		System.out.println("Input inntekt:");
+		Scanner sc = new Scanner(System.in);
+		System.out.println(
+				"Skatt: " +
+				trinnskatt(
+						Double.parseDouble(
+								sc.next()
+								)
+						)
+				);
+		sc.close();
 	}
 	
 	public static double trinn(int min, int max, double moneySoBig) {

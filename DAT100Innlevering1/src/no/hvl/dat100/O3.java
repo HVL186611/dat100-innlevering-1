@@ -8,7 +8,7 @@ public class O3 {
 	public static void main(String[] args) {
 		while (true) {
 			String input = showInputDialog("Fakultet av:");
-			try {System.out.println(Integer.parseInt(input));}
+			try {System.out.println(factorial(Integer.parseInt(input)));}
 			catch (NumberFormatException e) {
 				System.out.println("Input ikke godkjent, avbryter.");
 				return;
